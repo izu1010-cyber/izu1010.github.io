@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kidroom - Fun and safe for kids.">
-    <title>Izu Hub | Kidroom</title>
+    <title>JaeGyeong | Kidroom</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">Izu Hub</div>
+        <div class="logo">JaeGyeong</div>
         <div class="menu-toggle">☰</div>
         <ul class="nav-links">
             <li><a href="../index.html" class="nav-link">Home</a></li>
@@ -33,13 +33,28 @@
     <main>
         <section class="hero">
             <h1>Kid Room</h1>
-            <p>A magical place for learning and creativity.</p>
+            <p>아이들이 좋아하는 사진들을 올려주세요.</p>
         </section>
 
-        <div style="text-align: center; padding: 2rem;">
-            <!-- Placeholder for specific page content -->
-            <p>Your kid-friendly content goes here...</p>
-        </div>
+        <section class="photo-board-section">
+            <div class="board-header">
+                <h2>Our Little Artists Gallery</h2>
+                <div class="upload-container">
+                    <label for="photo-upload" class="upload-btn">
+                        <span>📸 Share Your Art</span>
+                    </label>
+                    <input type="file" id="photo-upload" accept="image/*" multiple hidden>
+                </div>
+            </div>
+
+            <div id="photo-grid" class="photo-grid">
+                <!-- Javascript will populate this -->
+                <div class="photo-item placeholder-item">
+                    <img src="../assets/kids_art_icon.png" alt="Welcome to Kidroom">
+                    <div class="photo-caption">Welcome to the Gallery!</div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="../js/main.js"></script>

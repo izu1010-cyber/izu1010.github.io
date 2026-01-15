@@ -1,11 +1,16 @@
 :root {
-    --bg-color: #0f172a;
-    --text-color: #f8fafc;
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #38bdf8;
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-color: #f0f9ff;
+    /* Sky 50 */
+    --text-color: #0f172a;
+    /* Slate 900 */
+    --primary-color: #0ea5e9;
+    /* Sky 500 */
+    --secondary-color: #38bdf8;
+    /* Sky 400 */
+    --accent-color: #7dd3fc;
+    /* Sky 300 */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.8);
     --nav-height: 70px;
     --font-main: 'Outfit', sans-serif;
 }
@@ -21,8 +26,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 20%);
+        linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 100%);
     min-height: 100vh;
     line-height: 1.6;
 }
@@ -33,12 +37,14 @@ h2,
 h3 {
     line-height: 1.2;
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -57,7 +63,8 @@ a {
     width: 100%;
     height: var(--nav-height);
     padding: 0 2rem;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque for light mode */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
@@ -71,6 +78,7 @@ a {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
+    color: var(--primary-color);
 }
 
 .nav-links {
@@ -81,13 +89,14 @@ a {
 
 .nav-link {
     font-weight: 500;
-    color: rgba(248, 250, 252, 0.7);
+    color: #475569;
+    /* Slate 600 */
     position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .nav-link::after {
@@ -97,7 +106,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--primary-color);
     transition: width 0.3s ease;
 }
 
@@ -111,6 +120,7 @@ a {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text-color);
 }
 
 /* Main Content */
@@ -137,7 +147,8 @@ main {
 
 .hero p {
     font-size: 1.25rem;
-    color: rgba(248, 250, 252, 0.8);
+    color: #475569;
+    /* Slate 600 */
     max-width: 600px;
 }
 
@@ -149,12 +160,12 @@ main {
     border-radius: 9999px;
     font-weight: 600;
     margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
 }
 
 /* Page Layout Grid */
@@ -186,12 +197,13 @@ main {
 }
 
 .room-card p {
-    color: rgba(248, 250, 252, 0.7);
+    color: #475569;
+    /* Slate 600 */
     margin-bottom: 1.5rem;
 }
 
 .room-link {
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -200,6 +212,7 @@ main {
 
 .room-link:hover {
     gap: 0.8rem;
+    color: var(--secondary-color);
 }
 
 /* Responsive */
@@ -209,7 +222,7 @@ main {
         top: var(--nav-height);
         left: 0;
         width: 100%;
-        background: var(--bg-color);
+        background: rgba(255, 255, 255, 0.95);
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
@@ -218,6 +231,7 @@ main {
         z-index: 999;
         pointer-events: none;
         transition: all 0.3s ease;
+        border-bottom: 1px solid var(--glass-border);
     }
 
     .nav-links.active {
@@ -252,12 +266,13 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .game-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    border-color: var(--accent-color);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: var(--primary-color);
 }
 
 .game-image {
@@ -267,7 +282,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     /* Fallback color if image fails */
-    background-color: #2d3748;
+    background-color: #e2e8f0;
 }
 
 .game-content {
@@ -285,7 +300,8 @@ main {
 }
 
 .game-content p {
-    color: rgba(248, 250, 252, 0.7);
+    color: #475569;
+    /* Slate 600 */
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -311,12 +327,188 @@ main {
     transform: scale(1.02);
 }
 
-@media (max-width: 768px) {
-    .games-grid {
-        grid-template-columns: 1fr;
+
+/* --------------------------
+   Kidroom Photo Board
+   -------------------------- */
+.photo-board-section {
+    padding-top: 2rem;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #f472b6, #db2777);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(219, 39, 119, 0.4);
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(219, 39, 119, 0.5);
+    background: linear-gradient(135deg, #f68cc4, #e11d48);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.photo-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-caption {
+    transform: translateY(0);
+}
+
+/* --------------------------
+   Playroom Game Portal
+   -------------------------- */
+.game-portal-section {
+    padding-top: 2rem;
+}
+
+.portal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.portal-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.portal-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    background: rgba(56, 189, 248, 0.1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.portal-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.portal-card:hover .portal-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.portal-info h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.portal-info p {
+    font-size: 0.95rem;
+    color: rgba(248, 250, 252, 0.7);
+    line-height: 1.4;
+}
+
+.portal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.featured-portal-img {
+    max-width: 300px;
+    width: 100%;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.5));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    .game-image {
-        height: 200px;
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .board-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .upload-btn {
+        width: 100%;
+        justify-content: center;
     }
 }

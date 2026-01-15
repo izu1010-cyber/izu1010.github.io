@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Racer - JaeGyeong Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ef4444;
+            /* Racing Red */
+            font-style: italic;
+        }
+
+        .game-container {
+            position: relative;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            border: 4px solid #334155;
+            border-radius: 4px;
+            background-color: #64748b;
+            /* Road color */
+            display: block;
+        }
+
+        .score-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 800;
+            color: #1e293b;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls-info {
+            margin-top: 15px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            display: none;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 99px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #dc2626;
+        }
+
+        .home-link {
+            margin-top: 20px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>RETRO RACER</h1>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="300" height="500"></canvas>
+        <div class="score-display">DISTANCE: <span id="score">0</span></div>
+
+        <div id="startScreen" class="overlay active">
+            <h2>Ready to Race?</h2>
+            <p>Avoid traffic!</p>
+            <button class="btn" onclick="startGame()">Start Engine</button>
+        </div>
+
+        <div id="gameOverScreen" class="overlay">
+            <h2>CRASH!</h2>
+            <p>Distance: <span id="finalScore">0</span>m</p>
+            <button class="btn" onclick="startGame()">Race Again</button>
+        </div>
+    </div>
+
+    <div class="controls-info">
+        ← → : Steer | Avoid other cars
+    </div>
+    <a href="../../pages/gameroom.html" class="home-link">← Back to Game Room</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
